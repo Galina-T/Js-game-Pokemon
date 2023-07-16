@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
+    <meta name="description" content="pokemon game js" />
+    <meta name="keywords" content="pokemon game js" />
+    <meta name="author" content="Galina Tuzhik" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="preload"
+      href="./fonts/pokemon-3.woff"
+      as="font"
+      type="font/woff"
+    />
+    <link
+      rel="preload"
+      href="./fonts/pokemon-2.woff"
+      as="font"
+      type="font/woff"
+    />
+    <link
+      rel="preload"
+      href="./fonts/pokemon-4.woff"
+      as="font"
+      type="font/woff"
+    />
+    <!-- <link
+      rel="icon"
+      href="./static/favicon_ico/android-chrome-512x512.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="./static/favicon_ico/apple-touch-icon.png"
+    /> -->
+    <title>game-pokemon</title>
+    <style type="text/css" media="screen, print">
+      @font-face {
+        font-family: "Pokemon";
+        src: url("./fonts/pokemon-3.woff") format("woff");
+      }
+      @font-face {
+        font-family: "PokemonSolid";
+        src: url("./fonts/pokemon-2.woff") format("woff");
+      }
+      @font-face {
+        font-family: "PokemonMonk";
+        src: url("./fonts/pokemon-4.woff") format("woff");
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BY2XF4HMKS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-BY2XF4HMKS");
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="preview">
+        <div class="logo">
+          <img class="logo_img" src="./img/pokemon-logo.svg" alt="logo" />
+        </div>
+        <div class="description preview__description">
+          <p class="preview__description_target">Catch</p>
+          <p class="description__small">and</p>
+          <p class="preview__description_pokeball">not be caught!</p>
+        </div>
+        <ul class="players">
+          <li class="players_item" tabindex="0">
+            <img
+              id="player1"
+              class="players_img"
+              src="./img/pikachu.svg"
+              alt="player1"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player2"
+              class="players_img"
+              src="./img/bulbasaur.svg"
+              alt="player2"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player3"
+              class="players_img"
+              src="./img/eevee.svg"
+              alt="player3"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player4"
+              class="players_img"
+              src="./img/psyduck.svg"
+              alt="player4"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player5"
+              class="players_img"
+              src="./img/snorlax.svg"
+              alt="player5"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player6"
+              class="players_img"
+              src="./img/squirtle.svg"
+              alt="player6"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player7"
+              class="players_img"
+              src="./img/charmander.svg"
+              alt="player7"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player8"
+              class="players_img"
+              src="./img/meowth.svg"
+              alt="player8"
+            />
+          </li>
+          <li class="players_item" tabindex="0">
+            <img
+              id="player9"
+              class="players_img"
+              src="./img/jigglypuff.svg"
+              alt="player9"
+            />
+          </li>
+        </ul>
+      </div>
+      <div id="game-over">
+        <span id="score" class="score"> 0 </span>
+        <p class="description">Try again!</p>
+        <div class="controls">
+          <button
+            id="btn-share"
+            type="button"
+            aria-label="copyLink"
+            class="controls__btn controls__btn_link"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1.4em"
+              viewBox="0 0 448 512"
+            >
+              <style>
+                svg {
+                  fill: #003a70;
+                }
+              </style>
+              <path
+                d="M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z"
+              />
+            </svg>
+          </button>
+          <button
+            id="btn-restart"
+            type="button"
+            aria-label="restart"
+            class="controls__btn controls__btn_restart"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1.4em"
+              viewBox="0 0 512 512"
+            >
+              <style>
+                svg {
+                  fill: #003a70;
+                }
+                svg:hover {
+                  fill: #ffcb05;
+                }
+              </style>
+              <path
+                d="M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5c7.7-21.8 20.2-42.3 37.8-59.8zM16 312v7.6 .7V440c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l41.6-41.6c87.6 86.5 228.7 86.2 315.8-1c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.2 62.2-162.7 62.5-225.3 1L185 329c6.9-6.9 8.9-17.2 5.2-26.2s-12.5-14.8-22.2-14.8H48.4h-.7H40c-13.3 0-24 10.7-24 24z"
+              />
+            </svg>
+          </button>
+          <button
+            id="btn-preview"
+            type="button"
+            aria-label="newGame"
+            class="controls__btn controls__btn_new"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1.4em"
+              viewBox="0 0 384 512"
+            >
+              <style>
+                svg {
+                  fill: #003a70;
+                }
+              </style>
+              <path
+                d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <canvas id="canvas" style="display: none"></canvas>
+    </div>
+    <section class="images">
+      <div class="enemies">
+        <img id="enemy1" src="./img/pokeball.svg" alt="enemy1" />
+      </div>
+      <div class="targets">
+        <img id="target1" src="./img/target.svg" alt="target1" />
+      </div>
+    </section>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
