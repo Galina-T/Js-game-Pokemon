@@ -28,7 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='20px' height='785px' viewBox='0 0 20 785' enable-background='new 0 0 20 785' xml:space='preserve'%3E %3Crect x='7' fill='%23EDEDED' stroke='%23FFFFFF' stroke-miterlimit='10' width='8' height='792'/%3E %3C/svg%3E");
-  -webkit-overflow-scrolling: auto;
+  -webkit-overflow-scrolling: touch;
   overflow: hidden;
 }
 

@@ -234,6 +234,7 @@ window.addEventListener("load", function () {
         this.speed = -12;
       } else if (input.dx !== 0) {
         this.speed = -input.dx * 2;
+        input.dx = 0;
       } else {
         this.speed = 0;
       }
